@@ -1,0 +1,6 @@
+- {path: /customer-list, controller: \Mpwarapp\Home\Controller\Customer, action: list}
+- {path: /customer-show, controller: \Mpwarapp\Home\Controller\Customer, action: show}
+- {path: /customer-create, controller: \Mpwarapp\Home\Controller\Customer, action: create}
+- {path: /customer-delete, controller: \Mpwarapp\Home\Controller\Customer, action: delete}
+- {path: /customer-update, controller: \Mpwarapp\Home\Controller\Customer, action: update}
+
