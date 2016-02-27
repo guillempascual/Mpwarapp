@@ -4,10 +4,11 @@ namespace Mpwarapp\Home\Controller;
 
 use Mpwarfw\Component\Response\ResponseHTTP;
 use Mpwarfw\Component\Response\ResponseJSON;
+use Mpwarfw\Component\Template\TwigTemplate;
 
-class Customer extends BaseController
+class Customer extends DefaultController
 {
-    public function show($request)
+    public function show()
     {
         $result = ['vino rioja' => ['s'=>'ffff','d'=>'kjdsffdj']];
 
@@ -15,12 +16,15 @@ class Customer extends BaseController
         $response->setResponse($result);
         return $response;
     }
-        public function executeActionHTTP($request)
+        public function show_all()
     {
-        $result = 'vino rioja';
+        $all_customers = array('Alex', 'Guillem', 'Heidi', 'María', 'Laura');
+
+        $templating = new TwigTemplate(self::VIEW_PATH);
+        $html = $templating->createView('showAll',array('all_customers' => $all_customers));
 
         $response = new ResponseHTTP();
-        $response->setResponse($result);
+        $response->setResponse($html);
         return $response;
     }
 }

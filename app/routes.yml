@@ -1,4 +1,4 @@
-- {path: /customer-list, controller: \Mpwarapp\Home\Controller\Customer, action: list}
+- {path: /customer-list, controller: \Mpwarapp\Home\Controller\Customer, action: show_all}
 - {path: /customer-show, controller: \Mpwarapp\Home\Controller\Customer, action: show}
 - {path: /customer-create, controller: \Mpwarapp\Home\Controller\Customer, action: create}
 - {path: /customer-delete, controller: \Mpwarapp\Home\Controller\Customer, action: delete}
