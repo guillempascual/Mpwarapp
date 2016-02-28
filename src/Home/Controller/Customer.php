@@ -2,6 +2,7 @@
 
 namespace Mpwarapp\Home\Controller;
 
+use Mpwarfw\Component\Database\PDOConnection;
 use Mpwarfw\Component\Response\ResponseHTTP;
 use Mpwarfw\Component\Response\ResponseJSON;
 use Mpwarfw\Component\Template\SmartyTemplate;
@@ -20,9 +21,10 @@ class Customer extends DefaultController
 
     public function show_all()
     {
-        $all_customers = array('Alex', 'Guillem', 'Heidi', 'María', 'Laura');
+        $pdoConnection = new PDOConnection(HOST,DBNAME,USER,PASSWORD);
+        $all_customers = $pdoConnection->execute("SELECT * FROM customer", array());
 
-        $templating = new TwigTemplate(self::VIEW_PATH);
+        $templating = new TwigTemplate(VIEW_PATH);
         $html = $templating->createView('showAll', array('title' => "All Customers", 'all_customers' => $all_customers));
 
         $response = new ResponseHTTP();
@@ -32,9 +34,10 @@ class Customer extends DefaultController
 
     public function show_vip_all()
     {
-        $all_customers = array('Alex', 'Guillem', 'Heidi', 'María', 'Laura');
+        $pdoConnection = new PDOConnection(HOST,DBNAME,USER,PASSWORD);
+        $all_customers = $pdoConnection->execute("SELECT * FROM customer", array());
 
-        $templating = new SmartyTemplate(self::VIEW_PATH);
+        $templating = new SmartyTemplate(VIEW_PATH);
         $html = $templating->createView('showAll', array('title' => "VIP Customers", 'all_customers' => $all_customers));
 
         $response = new ResponseHTTP();

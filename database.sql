@@ -1,0 +1,9 @@
+CREATE DATABASE mpwar_frameworks CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+DROP TABLE customer IF NOT EXIST;
+CREATE TABLE customer (
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR (255),
+email VARCHAR (255),
+phone CHAR (20)
+)ENGINE=InnoDB;

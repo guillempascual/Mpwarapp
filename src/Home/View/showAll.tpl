@@ -3,8 +3,19 @@
     <title>{$title}</title>
 </head>
 <body>
-{foreach $all_customers as $customer}
-    <h2>{$customer}</h2>
-{/foreach}
+
+<div class="col-lg-12 " >
+    <h1>VIP Customers</h1>
+    <ul>
+       {foreach $all_customers as $customer}
+            <li>
+                <p><h2>{$customer.name}</h2></p>
+                <p>email: {$customer.email}</p>
+                <p>phone: {$customer.phone} </p>
+            </li>
+        {/foreach}
+    </ul>
+</div>
+
 </body>
 </html>
