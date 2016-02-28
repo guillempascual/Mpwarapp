@@ -1,0 +1,3 @@
+[submodule "vendor/guillempascual/Mpwarfw"]
+	path = vendor/guillempascual/Mpwarfw
+	url = https://github.com/guillempascual/Mpwarfw
