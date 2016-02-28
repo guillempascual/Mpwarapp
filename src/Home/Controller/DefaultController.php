@@ -2,11 +2,18 @@
 
 namespace Mpwarapp\Home\Controller;
 
-class DefaultController
+abstract class DefaultController
 {
-    public function __construct()
-    {
+    private $servicesContainer;
+    public function __construct(){}
 
+    public function setServicesContainer($servicesContainer)
+    {
+        $this->servicesContainer = $servicesContainer;
     }
 
+    public function getServicesContainer($service)
+    {
+        return $this->servicesContainer[$service];
+    }
 }

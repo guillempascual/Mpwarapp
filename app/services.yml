@@ -1,0 +1,35 @@
+parameters:
+  host:     localhost
+  dbname:   mpwar-frameworks
+  user:     root
+  password: vagrantpass
+  view_path: ../src/Home/View
+
+services:
+  PDOConnection:
+    class:    PDOConnection
+    arguments: [%host%, %dbname%, %user%, %password%]
+    tags:     db,pdo
+    public:   true
+  TwigTemplate:
+    class:     TwigTemplate
+    arguments: [%view_path%]
+    tags:      template,twig
+    public:   true
+  SmartyTemplate:
+    class:     SmartyTemplate
+    arguments: [%view_path%]
+    tags:      template,smarty
+    public:    true
+  ResponseHTTP:
+    class:    ResponseHTTP
+    tags:     response,HTTP
+    public:   true
+  ResponseJSON:
+    class:    ResponseJSON
+    tags:     response,JSON
+    public:   true
+  Router:
+    class:    Router
+    tags:     router
+    public:   true
