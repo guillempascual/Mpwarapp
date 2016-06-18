@@ -9,13 +9,13 @@ yml_parser:
     class: Symfony\Component\Yaml\Parser
     public: true
 
-SmartyTemplate:
+smarty_template:
     class: Mpwarfw\Component\Template\SmartyTemplate
     arguments:
       - "/var/www/framework16/Mpwarapp/src/home/view"
     public: true
 
-TwigTemplate:
+twig_template:
     class: Mpwarfw\Component\Template\TwigTemplate
     arguments:
       - "/var/www/framework16/Mpwarapp/src/Home/View"
