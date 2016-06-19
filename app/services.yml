@@ -12,8 +12,13 @@ yml_parser:
 SmartyTemplate:
     class: Mpwarfw\Component\Template\SmartyTemplate
     arguments:
+      - "@Smarty"
       - "/var/www/framework16/Mpwarapp/src/home/view"
     public: true
+
+Smarty:
+    class: Smarty
+    public: false
 
 TwigTemplate:
     class: Mpwarfw\Component\Template\TwigTemplate

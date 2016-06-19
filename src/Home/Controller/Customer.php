@@ -34,7 +34,7 @@ class Customer extends ContainerController
         $all_customers = $pdoConnection->execute("SELECT * FROM customer", array());
 
         $templating = $this->container->getService('SmartyTemplate');
-        $html = $templating->render('showAll', array('title' => "VIP Customers", 'all_customers' => $all_customers));
+        $html = $templating->render('showAll.tpl', array('title' => "VIP Customers", 'all_customers' => $all_customers));
 
         $response = $this->container->getService('ResponseHTTP');
         $response->setResponse($html);

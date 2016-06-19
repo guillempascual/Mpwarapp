@@ -9,9 +9,10 @@ yml_parser:
     class: Symfony\Component\Yaml\Parser
     public: true
 
-smarty_template:
+SmartyTemplate:
     class: Mpwarfw\Component\Template\SmartyTemplate
     arguments:
+      - "@Smarty"
       - "/var/www/framework16/Mpwarapp/src/home/view"
     public: true
 
