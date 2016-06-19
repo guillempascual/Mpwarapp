@@ -18,8 +18,24 @@ SmartyTemplate:
 TwigTemplate:
     class: Mpwarfw\Component\Template\TwigTemplate
     arguments:
-      - "/var/www/framework16/Mpwarapp/src/Home/View"
+      - "@TwigEnvironment"
     public: true
+
+TwigEnvironment:
+    class: Twig_Environment
+    arguments:
+      - "@TwigLoader"
+      - "['cache' => '/var/www/html/framework16/Mpwarapp/src/home/cache', 'debug' => 'false']"
+    public: false
+    tags:
+      - example
+      - twig
+
+TwigLoader:
+    class: Twig_Loader_Filesystem
+    arguments:
+      - "/var/www/framework16/Mpwarapp/src/Home/View"
+    public: false
 
 PDOConnection:
     class: Mpwarfw\Component\Database\PDOConnection

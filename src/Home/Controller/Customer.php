@@ -21,7 +21,7 @@ class Customer extends ContainerController
         $all_customers = $pdoConnection->execute("SELECT * FROM customer", array());
 
         $templating = $this->container->getService('TwigTemplate');
-        $html = $templating->render('showAll', array('title' => "All Customers", 'all_customers' => $all_customers));
+        $html = $templating->render('showAll.twig', array('title' => "All Customers", 'all_customers' => $all_customers));
 
         $response = $this->container->getService('ResponseHTTP');
         $response->setResponse($html);
