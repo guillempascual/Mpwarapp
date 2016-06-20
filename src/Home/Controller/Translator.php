@@ -20,13 +20,13 @@ class Translator extends ContainerController
                 "Hello World!" => $translator->translate("Hello World!"),
                 "This is a test" => $translator->translate("This is a test")
             ];
-            $html = $template->render('translator.tpl', array('title' => "i18n", 'lang' => $lang, 'translations' => $translations));
+            $html = $template->render('smarty/translator.tpl', array('title' => "i18n", 'lang' => $lang, 'translations' => $translations));
             $response->setContentType('text\html; charset=utf-8');
             $response->setStatus(200);
             $response->setContent($html);
             return $response;
         }
-        $html = $template->render('translator.tpl', array('title' => "i18n", 'validLangs' => $validLangs ));
+        $html = $template->render('smarty/translator.tpl', array('title' => "i18n", 'validLangs' => $validLangs ));
         $response->setContentType('text\html; charset=utf-8');
         $response->setContent($html);
         $response->setStatus(404 );

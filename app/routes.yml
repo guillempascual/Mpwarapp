@@ -3,4 +3,5 @@
 - {path: /customer-list-twig, controller: \Mpwarapp\Home\Controller\Customer, action: showCustomerListTwig}
 - {path: /customer-show, controller: \Mpwarapp\Home\Controller\Customer, action: show}
 - {path: /translate, controller: \Mpwarapp\Home\Controller\Translator, action: translate}
+- {path: /home, controller: \Mpwarapp\Home\Controller\Home, action: index}
 
