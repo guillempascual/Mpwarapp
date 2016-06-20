@@ -11,7 +11,7 @@ class Customer extends ContainerController
         $pdoConnection = $this->container->getService('PDOConnection');
         $all_customers = $pdoConnection->execute("SELECT * FROM customer", array());
         $response = $this->container->getService('ResponseJSON');
-        $response->setResponse($all_customers);
+        $response->setContent($all_customers);
         return $response;
     }
 
@@ -24,7 +24,9 @@ class Customer extends ContainerController
         $html = $templating->render('showAllCustomers.twig', array('title' => "All Customers in Twig", 'all_customers' => $all_customers));
 
         $response = $this->container->getService('ResponseHTTP');
-        $response->setResponse($html);
+        $response->setContentType('text\html');
+        $response->setStatus(200);
+        $response->setContent($html);
         return $response;
     }
 
@@ -37,7 +39,9 @@ class Customer extends ContainerController
         $html = $templating->render('showAllCustomers.tpl', array('title' => "All Customers in Smarty", 'all_customers' => $all_customers));
 
         $response = $this->container->getService('ResponseHTTP');
-        $response->setResponse($html);
+        $response->setContentType('text\html');
+        $response->setStatus(200);
+        $response->setContent($html);
         return $response;
     }
 
@@ -47,10 +51,21 @@ class Customer extends ContainerController
         $customer = $pdoConnection->execute('SELECT * FROM customer WHERE id  = :id', array(':id' => $id));
 
         $templating = $this->container->getService('TwigTemplate');
-        $html = $templating->render('showCustomer.twig', array('title' => "Show Customer", 'id' => $id, 'customer' => $customer));
-
         $response = $this->container->getService('ResponseHTTP');
-        $response->setResponse($html);
-        return $response;
+
+        if(isset($customer[0])){
+            $html = $templating->render('showCustomer.twig', array('title' => "Show Customer", 'id' => $id, 'customer' => $customer[0]));
+            $response->setContentType('text\html');
+            $response->setStatus(200);
+            $response->setContent($html);
+         }
+        else{
+            $html = $templating->render('showCustomerErrorDoesNotExist.twig', array('title' => "Customer Error", 'id' => $id));
+            $response->setContentType('text\html');
+            $response->setStatus(403);
+            $response->setContent($html); 
+        }
+
+       return $response;
     }
 }

@@ -6,10 +6,10 @@
 {% block content %}
     <div class="col-lg-12 " >
         {% if customer %}
-            <h1>Customer ID: {{ customer.0.id }}</h1>
-            <p><h2>{{ customer.0.name }}</h2></p>
-            <p>email: {{ customer.0.email }}</p>
-            <p>phone: {{  customer.0.phone }} </p>
+            <h1>Customer ID: {{ customer.id }}</h1>
+            <p><h2>{{ customer.name }}</h2></p>
+            <p>email: {{ customer.email }}</p>
+            <p>phone: {{  customer.phone }} </p>
         {%  else %}
             No customer found with id: {{ id }}
         {% endif %}
