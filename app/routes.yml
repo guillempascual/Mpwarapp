@@ -2,4 +2,5 @@
 - {path: /customer-list-smarty, controller: \Mpwarapp\Home\Controller\Customer, action: showCustomerListSmarty}
 - {path: /customer-list-twig, controller: \Mpwarapp\Home\Controller\Customer, action: showCustomerListTwig}
 - {path: /customer-show, controller: \Mpwarapp\Home\Controller\Customer, action: show}
+- {path: /translate, controller: \Mpwarapp\Home\Controller\Translator, action: translate}
 

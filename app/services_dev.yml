@@ -54,3 +54,8 @@ ResponseHTTP:
 ResponseJSON:
     class: Mpwarfw\Component\Response\ResponseJSON
     public: true
+
+Translator:
+  class: Mpwarfw\Component\i18n\Translator
+  arguments:
+      - "@yaml-parser"
